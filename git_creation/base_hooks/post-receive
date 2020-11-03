@@ -1,0 +1,11 @@
+while read old new ref
+do
+
+	if [ $ref = "ref/heads/master" ];
+	then
+		echo $DEPLOY
+		git $CMD
+	else
+		echo $NODEPLOY
+	fi
+done
