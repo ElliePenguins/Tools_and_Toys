@@ -17,4 +17,5 @@ a usage example is:
   It will also create a deployment dir named example_deploy in directory deployment.
   
   The final paramenter <build script> is optional this would allow the ability to include a script of the same
-  name to be run every time the server repository is pushed too.
+  name to be run every time the server repository is pushed too. This script could contain build commands and/or
+  other included tests to run.
