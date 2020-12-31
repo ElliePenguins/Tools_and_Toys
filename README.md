@@ -24,6 +24,9 @@ a usage example is:
 ## Relay-Beacon
 This can be used to run a predefined script on a machine or VM remotely. A practicle example for its use is when creating new VM's, this script can be included in the image to automate tasks or create beacons/heartbeats if combined with crontab depending on which machine the client or server scripts are run.
 
+To use this, pyotp must be installed: pip3 install pyotp
+Also you may need to adjust the python3 interpreter location to fit your machine.
+
 The two main components for this program are client and server scripts.
 
 The server script runs with the form:  
@@ -38,7 +41,6 @@ The client script runs with the form:
   
 This is the script that connects to the machines running the server script.
 
-Note that the two scripts interact with eachother over by each generating a one time password. Beacause of this it is important that each of the machines involed have their times properly syncronized. Also the key to generate these passwords must be the same on the two points.
+Note that the two scripts interact with eachother by each generating a one time password. Beacause of this it is important that each of the machines involed have their times properly syncronized. Also the key to generate these passwords must be the same on the two points.
 
 At this time there is no network encryption. Until that is added the network conditions should be considered.
-
