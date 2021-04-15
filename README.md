@@ -24,7 +24,7 @@ a usage example is:
 This works great for building pipelines on local infra with jenkins.
 For example, if the repo exists in the users home dir, use the format:
 
-  ssh://<username>@<ip_address>/~/<repository_dir>/<repository_name>
+  ssh://\<username\>@\<ip_address\>/~/\<repository_dir\>/\<repository_name\>
   
 
 ---
