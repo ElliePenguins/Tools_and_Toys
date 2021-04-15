@@ -19,7 +19,16 @@ a usage example is:
   The final paramenter <build script> is optional this would allow the ability to include a script of the same
   name to be run every time the server repository is pushed too. This script could contain build commands and/or
   other included tests to run.
+  
 
+This works great for building pipelines on local infra with jenkins.
+For example, if the repo exists in the users home dir, use the format:
+
+  ssh://<username>@<ip_address>/~/<repository_dir>/<repository_name>
+  
+
+---
+<br/>
 
 ## Relay-Beacon
 This can be used to run a predefined script on a machine or VM remotely. A practicle example for its use is when creating new VM's, this script can be included in the image to automate tasks or create beacons/heartbeats if combined with crontab depending on which machine the client or server scripts are run.
