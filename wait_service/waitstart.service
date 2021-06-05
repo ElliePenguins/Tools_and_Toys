@@ -1,0 +1,10 @@
+[Unit]
+Description=Enter Description Here
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStart=/home/username/start.sh
+
+[Install]
+WantedBy=multi-user.target

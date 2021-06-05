@@ -53,3 +53,24 @@ This is the script that connects to the machines running the server script.
 Note that the two scripts interact with eachother by each generating a one time password. Beacause of this it is important that each of the machines involed have their times properly syncronized. Also the key to generate these passwords must be the same on the two points.
 
 At this time there is no network encryption. Until that is added the network conditions should be considered.
+
+
+---
+<br/>
+
+## Wait-Service  
+This can be used to make sure that commands are run or services come up in a proper order across multiple machines. For example: a server (physical or virtual) that gets its data from an nfs share on a seperate machine would need to bring its services up after the other machine is booted. 
+  
+To do this, there is a unit file and script named start.sh
+  1. Modify the IP_ADDR variable in the start.sh script to reference the IP of the server you want the machine to wait for.
+  2. Replace the echo commands with the commands you wish to run once a ping response has been recieved.
+     Like any other script multiple commands can be entered here 
+  3. Place the start.sh script where ever is appropriate for your system, as long as it is accessable to the unit file.
+  4. Modify the waitstart.service unit file's description= directive as you feel appropriate
+  5. Modify the waitstart.service unit file's execstart= directive to point to the absolute location of the start.sh script.
+  6. Place the waitstart.service unit file into the appropriate directory for your system. eg. /etc/systemd/system
+  7. Run: "systemctl daemon-reload" to make systemd aware of the new unit file
+  8. Run: "systemctl enable waitstart.service" to run the script at startup.
+  
+Note: Currently start.sh pings 256 times and then fails. You can modify this number as appropriate for your machine.
+  
